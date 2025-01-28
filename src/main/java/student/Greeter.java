@@ -24,7 +24,7 @@ public class Greeter {
 
     /** List of locality options. */
     private static final List<String>
-            localityList = List.of("Hawaii", "USA", "China", "Italy");
+            LOCALITY_LIST = List.of("Hawaii", "USA", "China", "Italy");
 
     /** int value of Hawaii greeting. */
     private static final int HAWAII = 1;
@@ -55,9 +55,9 @@ public class Greeter {
      */
     public Greeter(String name, int locality) {
         this.name = name;
-        if (locality < 1 || locality > localityList.size()) {
+        if (locality < 1 || locality > LOCALITY_LIST.size()) {
             throw new IllegalArgumentException(
-                    String.format("Locality must be between 1 and %d", localityList.size()));
+                    String.format("Locality must be between 1 and %d", LOCALITY_LIST.size()));
         }
         this.locality = locality;
     }
@@ -94,9 +94,9 @@ public class Greeter {
      *        IllegalArgumentException
      */
     public void setLocality(int locality) {
-        if (locality < 1 || locality > localityList.size()) {
+        if (locality < 1 || locality > LOCALITY_LIST.size()) {
             throw new IllegalArgumentException(
-                    String.format("Locality must be between 1 and %d", localityList.size()));
+                    String.format("Locality must be between 1 and %d", LOCALITY_LIST.size()));
         }
         this.locality = locality;
     }
@@ -180,10 +180,10 @@ public class Greeter {
      * @return the locality as a string
      */
     private String getLocalityString() {
-        if (locality < 1 || locality > localityList.size()) {
+        if (locality < 1 || locality > LOCALITY_LIST.size()) {
             return "USA";
         }
-        return localityList.get(locality - 1);
+        return LOCALITY_LIST.get(locality - 1);
     }
 
     /**
@@ -192,7 +192,6 @@ public class Greeter {
      * identifier for an object. In this case as long as the name and locality are the same, the
      * hashcode will be the same.
      * Java assumes that if .equals is true, the hashcode should also be the same.
-     * 
      * @return the hashcode
      */
     @Override
@@ -248,10 +247,9 @@ public class Greeter {
 
     /**
      * Returns a copy of the locality list.
-     * 
      * @return a copy of the locality list
      */
     public static List<String> getLocalityList() {
-        return List.copyOf(localityList); // return a copy so original isn't modified
+        return List.copyOf(LOCALITY_LIST); // return a copy so original isn't modified
     }
 }

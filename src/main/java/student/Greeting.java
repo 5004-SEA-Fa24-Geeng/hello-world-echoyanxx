@@ -17,10 +17,25 @@ package student;
  *                                                                     // "{name}, 你好!"
  */
 public class Greeting {
+    /**
+     * The unique identifier for the locality.
+     */
     private final int localityID;
+    /**
+     * The name of the locality.
+     */
     private final String localityName;
+    /**
+     * The ASCII representation of the greeting.
+     */
     private final String asciiGreeting;
+    /**
+     * The Unicode representation of the greeting.
+     */
     private final String unicodeGreeting;
+    /**
+     * The format string used to construct the greeting.
+     */
     private final String formatStr;
     /**
      * @param localityID - id of the locality
