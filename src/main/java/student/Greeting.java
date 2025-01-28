@@ -60,7 +60,7 @@ public class Greeting {
      * @param localityName  - name of the locality
      * @param asciiGreeting - greeting using ascii characters
      * @param unicodeGreeting - greeting using Unicode characters
-     * @param formatStr- format string for the greeting
+     * @param formatStr - format string for the greeting
      */
     public Greeting(int localityID,
                     String localityName,
@@ -79,7 +79,6 @@ public class Greeting {
     public int getLocalityID() {
         return localityID;
     }
-
     /**
      * Returns the locality name
      */
@@ -90,7 +89,7 @@ public class Greeting {
     /**
      * Returns the ascii greeting. Just the greeting, no formatting.
      */
-    public String getUnicodeGreeting(){
+    public String getUnicodeGreeting() {
         return unicodeGreeting;
     }
 
@@ -101,14 +100,15 @@ public class Greeting {
         return asciiGreeting;
     }
     /**
-     * Gets the Unicode format string. This string will have an %s, so that the name can be inserted into the greeting in the correct location.
+     * Gets the Unicode format string. This string will have an %s,
+     * so that the name can be inserted into the greeting in the correct location.
      */
-    public String getFormatStr(){
+    public String getFormatStr() {
         return this.getFormatStr(false);
     }
-
     /**
-     * Returns the format string with the greeting inserted into the format. This string will have an %s, so that the name can be inserted into the greeting in the correct location.
+     * Returns the format string with the greeting inserted into the format.
+     * This string will have an %s, so that the name can be inserted into the greeting in the correct location.
      * An example use is as follows
      *  Greeting g = new Greeting(2, "English");
      *  // later in code
@@ -116,7 +116,7 @@ public class Greeting {
      *  String greet = String.format(g.getFormatStr(false), name);
      *  System.out.println(greet); // Hello, Alice!
      */
-    public String getFormatStr(boolean asciiOnly){
+    public String getFormatStr(boolean asciiOnly) {
         if (asciiOnly) {
             return String.format(formatStr, asciiGreeting);
         } else {
@@ -129,7 +129,8 @@ public class Greeting {
      */
 
     @Override
-    public String toString(){
-        return String.format("{localityID:%d, localityName:\"%s\", asciiGreeting:\"%s\", unicodeGreeting:\"%s\"}", localityID, localityName, asciiGreeting, unicodeGreeting);
+    public String toString() {
+        return String.format("{localityID:%d, localityName:\"%s\", asciiGreeting:\"%s\", unicodeGreeting:\"%s\"}",
+                localityID, localityName, asciiGreeting, unicodeGreeting);
     }
 }
