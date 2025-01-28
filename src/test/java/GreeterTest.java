@@ -2,13 +2,9 @@ import org.junit.jupiter.api.Test;
 
 import student.Greeter;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.util.List;
 
-
+import static org.junit.jupiter.api.Assertions.*;
 
 
 /**
@@ -28,7 +24,7 @@ import java.util.List;
  * only focus on testing methods that are easier to test. </p>
  */
 public class GreeterTest {
-    // these are so i don't 'hardcode' the names in the tests
+    // these are so I don't 'hardcode' the names in the tests
 
     private static final String NAME_ONE = "John";
     private static final String NAME_TWO = "Alice";
@@ -38,10 +34,7 @@ public class GreeterTest {
     private static final Greeter greeter = new Greeter(NAME_ONE, 1);
     private static final Greeter greeter2 = new Greeter(NAME_ONE, 1);
     private static final Greeter greeter3 = new Greeter(NAME_ONE);
-    private static final Greeter greeter4 = new Greeter(NAME_TWO, 3);
-
-
-
+    private static final Greeter greeter4 = new Greeter(NAME_TWO, 4);
 
 
     /**
@@ -49,16 +42,12 @@ public class GreeterTest {
      */
     @Test
     public void testConstructor() {
-        assertThrows(IllegalArgumentException.class, () -> {
-            new Greeter(NAME_ONE, 0);
-        });
-        assertThrows(IllegalArgumentException.class, () -> {
-            new Greeter(NAME_ONE, 5);
-        });
+        assertThrows(IllegalArgumentException.class, () -> new Greeter(NAME_ONE, 0));
+        assertThrows(IllegalArgumentException.class, () -> new Greeter(NAME_ONE, 5));
         Greeter greeter = new Greeter(NAME_ONE, 1); // just making sure a basic one is created
-        assertTrue(greeter instanceof Greeter);
+        assertInstanceOf(Greeter.class, greeter);
         greeter = new Greeter(NAME_ONE);
-        assertTrue(greeter instanceof Greeter);
+        assertInstanceOf(Greeter.class, greeter);
     }
 
     /**
@@ -92,9 +81,9 @@ public class GreeterTest {
      */
     @Test
     public void testEquals() {
-        assertEquals(true, greeter.equals(greeter2));
+        assertEquals(greeter, greeter2);
         assertEquals(greeter.hashCode(), greeter2.hashCode());
-        assertEquals(false, greeter.equals(greeter3));
+        assertNotEquals(greeter, greeter3);
         assertNotEquals(greeter2.hashCode(), greeter3.hashCode());
     }
 
@@ -106,7 +95,7 @@ public class GreeterTest {
      */
     @Test
     public void testToString() {
-        assertEquals("{name:\"John\", locality:\"USA\"}", greeter.toString());
+        assertEquals("{name:\"John\", locality:\"Hawaii\"}", greeter.toString());
         assertEquals("{name:\"Alice\", locality:\"Italy\"}", greeter4.toString());
     }
 
@@ -141,15 +130,10 @@ public class GreeterTest {
         assertEquals(4, greeter.getLocality());
 
         // This is a special assert that is checking to
-        // see if the method throws an exception of a certain type
-        assertThrows(IllegalArgumentException.class, () -> {
-            greeter.setLocality(5);
-        });
+        // see if the method throws an exception to a certain type
+        assertThrows(IllegalArgumentException.class, () -> greeter.setLocality(5));
 
-        assertThrows(IllegalArgumentException.class, () -> {
-            greeter.setLocality(0);
-        });
-
+        assertThrows(IllegalArgumentException.class, () -> greeter.setLocality(0));
     }
 
 }

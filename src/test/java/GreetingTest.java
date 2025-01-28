@@ -8,7 +8,6 @@ import student.Greeting;
  * Class to test the Greeting class. STUDENTS, you can assume the methods in this class are correct.
  * However, since Greeting isn't created by default, we have commented out all of these methods. You
  * should uncomment them as you work through building the Greeting class.
- *
  * You are also free to add your own tests! Just providing the unit tests this time, so you can
  * focus on java syntax more than testing for HW01. Future homeworks, you will be expected to build
  * your own test classes.
@@ -21,7 +20,7 @@ public class GreetingTest {
     // uncomment test below as you complete methods in Greeting.java
 
     /**
-     * Executed before every tests, resets the values of the Greeting objects.
+     * Executed before every test, resets the values of the Greeting objects.
      */
      @BeforeEach
      public void setUp() {
@@ -62,7 +61,7 @@ public class GreetingTest {
      }
 
     /**
-     * Tests to make sure the unicode greeting is being returned properly.
+     * Tests to make sure the Unicode greeting is being returned properly.
      */
      @Test
      public void testGetUnicodeGreeting() {

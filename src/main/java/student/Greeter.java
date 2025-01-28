@@ -39,7 +39,6 @@ public class Greeter {
 
     /**
      * This is the constructor for the Greeter class.
-     *
      * This constructor assumes 2 as the default locality.
      * 
      * @param name of the person to greet
@@ -65,7 +64,6 @@ public class Greeter {
 
     /**
      * Returns the name of the greeter.
-     *
      * This is called an "accessor" method. It is a method that
      * returns the value of a private field. It is a good practice
      * to make fields private and use accessors to get the value.
@@ -78,7 +76,6 @@ public class Greeter {
 
     /**
      * Returns the locality of the greeter.
-     *
      * This is called an "accessor" method. It is a method that returns the value of a private
      * field. It is a good practice to make fields private and use accessors to get the value.
      * 
@@ -90,10 +87,8 @@ public class Greeter {
 
     /**
      * Used to (re)set the locality of the greeter.
-     *
      * This is called a "mutator" method. It is a method that sets the value of a private field. It
      * is a good practice to make fields private and use mutators to set the value.
-     *
      * Anything that doesn't have a mutator is a 'readonly' field.
      *
      * @param locality the int value of the locality, if out of range, throws an
@@ -110,7 +105,6 @@ public class Greeter {
     /**
      * This method is used to greet the user. It will return a greeting based on their set locality.
      * It will use ascii characters for the greeting.
-     *
      * This is called an "overloaded" method. It is a method with the same name as another method,
      * but with different parameters. This helps simplify the code calls, and allows for more
      * flexibility in the code.
@@ -169,7 +163,7 @@ public class Greeter {
                     greeting = String.format("%s, Ni Hao!", name);
                 } else {
                     greeting = String.format("%s, 你好!", name);
-                    // note "你好!" while is allowed in java sa unicode,
+                    // note "你好!" while is allowed in java as Unicode,
                     // most terminals don't allow non-ascii characters unless enabled
                 }
                 break;
@@ -189,20 +183,18 @@ public class Greeter {
      * @return the locality as a string
      */
     private String getLocalityString() {
-        if (locality < 1 || locality >= localityList.size()) {
+        if (locality < 1 || locality > localityList.size()) {
             return "USA";
         }
-        return localityList.get(locality);
+        return localityList.get(locality-1);
     }
 
     /**
-     * For new objects is is often a good idea to override the hashCode method.
-     *
-     * HashCodes are used in various data structures (like hashtables) to provide a 'unique'
+     * For new objects it is often a good idea to override the hashCode method.
+     * HashCodes are used in various data structures (like hashtable) to provide a 'unique'
      * identifier for an object. In this case as long as the name and locality are the same, the
      * hashcode will be the same.
-     *
-     * Java assumes that if .equals is true, the hashcodes should also be the same.
+     * Java assumes that if .equals is true, the hashcode should also be the same.
      * 
      * @return the hashcode
      */
@@ -212,8 +204,7 @@ public class Greeter {
     }
 
     /**
-     * For new objects is is often a good idea to override the equals method.
-     *
+     * For new objects it is often a good idea to override the equals' method.
      * In this case, we can compare two greeter objects and if the name and the locality are the
      * same, they are treated as the same object. Without this, it would actually compare the memory
      * addresses of the objects to confirm they are the same.
@@ -226,8 +217,7 @@ public class Greeter {
         if (this == obj) {
             return true;
         }
-        if (obj instanceof Greeter) {
-            Greeter other = (Greeter) obj;
+        if (obj instanceof Greeter other) {
             return name.equals(other.name) && locality == other.locality;
         }
         return false;
