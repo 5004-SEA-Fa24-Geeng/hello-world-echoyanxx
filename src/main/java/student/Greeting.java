@@ -48,6 +48,7 @@ public class Greeting {
     /**
      * @param localityID - id of the locality
      * @param localityName  - name of the locality
+     * @param greeting -  greeting using ascii characters
      */
     public Greeting(int localityID,
                     String localityName,
@@ -73,7 +74,7 @@ public class Greeting {
         this.asciiGreeting = asciiGreeting;
     }
     /**
-     * Returns the locality id number
+     * Returns the locality id number.
      */
     public int getLocalityID() {
         return localityID;
