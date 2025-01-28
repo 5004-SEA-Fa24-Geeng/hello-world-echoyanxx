@@ -1,15 +1,20 @@
 package student;
 
 /**
- * The greeting class is one student will build from scratch. You can use the javadoc to help guide the building of the class. Until this class is built, the auto grader will not be available/fail to run.
- * The greeting class stores the locality ID, locality name, and a string format of the greeting both ascii and Unicode. That way the various ways to look at the greeting are paired together, which could simplify the process of looking up the greeting making it easier to add additional greeting types without having to change code in other places.
- * For HW01 you won't have to explore how to do that, but you are encouraged to about how you could integrate this class to make the final program more versatile.
+ * The greeting class is one student will build from scratch.
+ * You can use the javadoc to help guide the building of the class.
+ * Until this class is built, the auto grader will not be available/fail to run.
+ * The greeting class stores the locality ID, locality name, and a string format of the greeting both ascii and Unicode.
+ * That way the various ways to look at the greeting are paired together,
+ * which could simplify the process of looking up the greeting making it easier to add additional greeting types
+ * without having to change code in other places.
+ * For HW01 you won't have to explore how to do that, but you are encouraged to about
+ * how you could integrate this class to make the final program more versatile.
  * The following examples are ways the class can be built and used:
  *  Greeting g = new Greeting(2, "English"); // sets up greeting to be "Hello, {name}!"
  *  Greeting h = new Greeting(1, "Hawaii", "Aloha"); // setups up greeting to be "Aloha, {name}!"
  *  Greeting c = new Greeting(3, "China", "你好", "Ni Hao", "%%s, %s!"); // sets up greeting to be
  *                                                                     // "{name}, 你好!"
- * 
  */
 public class Greeting {
     private final int localityID;
@@ -17,20 +22,24 @@ public class Greeting {
     private final String asciiGreeting;
     private final String unicodeGreeting;
     private final String formatStr;
-
+    /**
+     * @param localityID - id of the locality
+     * @param localityName  - name of the locality
+     */
     public Greeting(int localityID,
                     String localityName) {
         this(localityID, localityName, "Hello");
     }
-
+    /**
+     * @param localityID - id of the locality
+     * @param localityName  - name of the locality
+     */
     public Greeting(int localityID,
                     String localityName,
                     String greeting) {
         this(localityID, localityName, greeting, greeting, "%s, %%s!");
     }
-
     /**
-     *
      * @param localityID - id of the locality
      * @param localityName  - name of the locality
      * @param asciiGreeting - greeting using ascii characters

@@ -23,7 +23,8 @@ public class Greeter {
     private int locality;
 
     /** List of locality options. */
-    private static final List<String> localityList = List.of("Hawaii", "USA", "China", "Italy");
+    private static final List<String>
+            localityList = List.of("Hawaii", "USA", "China", "Italy");
 
     /** int value of Hawaii greeting. */
     private static final int HAWAII = 1;
@@ -40,7 +41,6 @@ public class Greeter {
     /**
      * This is the constructor for the Greeter class.
      * This constructor assumes 2 as the default locality.
-     * 
      * @param name of the person to greet
      */
     public Greeter(String name) {
@@ -71,14 +71,13 @@ public class Greeter {
      * @return the name of the greeter
      */
     public String getName() {
-        return name ;
+        return name;
     }
 
     /**
      * Returns the locality of the greeter.
      * This is called an "accessor" method. It is a method that returns the value of a private
      * field. It is a good practice to make fields private and use accessors to get the value.
-     * 
      * @return the int value of the locality
      */
     public int getLocality() {
@@ -108,7 +107,6 @@ public class Greeter {
      * This is called an "overloaded" method. It is a method with the same name as another method,
      * but with different parameters. This helps simplify the code calls, and allows for more
      * flexibility in the code.
-     * 
      * @return the greeting
      * @see #greet(boolean)
      */
@@ -179,14 +177,13 @@ public class Greeter {
     /**
      * Returns the locality as a string. If the locality is not between 1 and localityList.size() it
      * will return "USA"
-     * 
      * @return the locality as a string
      */
     private String getLocalityString() {
         if (locality < 1 || locality > localityList.size()) {
             return "USA";
         }
-        return localityList.get(locality-1);
+        return localityList.get(locality - 1);
     }
 
     /**
@@ -202,7 +199,6 @@ public class Greeter {
     public int hashCode() {
         return name.hashCode() + locality;
     }
-
     /**
      * For new objects it is often a good idea to override the equals' method.
      * In this case, we can compare two greeter objects and if the name and the locality are the
