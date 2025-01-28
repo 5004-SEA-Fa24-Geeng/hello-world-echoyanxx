@@ -75,6 +75,7 @@ public class Greeting {
     }
     /**
      * Returns the locality id number.
+     * @return the locality id as an Int
      */
     public int getLocalityID() {
         return localityID;
