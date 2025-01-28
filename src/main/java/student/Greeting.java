@@ -81,21 +81,23 @@ public class Greeting {
         return localityID;
     }
     /**
-     * Returns the locality name
+     * @return the locality name
      */
     public String getLocalityName() {
         return localityName;
     }
 
     /**
-     * Returns the ascii greeting. Just the greeting, no formatting.
+     * Returns the Unicode greeting. Just the greeting, no formatting.
+     *@return the Unicode greeting
      */
     public String getUnicodeGreeting() {
         return unicodeGreeting;
     }
 
     /**
-     * Returns the Unicode greeting. Just the greeting, no formatting.
+     * Returns the ascii greeting. Just the greeting, no formatting.
+     * @return the ascii greeting
      */
     public String getAsciiGreeting() {
         return asciiGreeting;
@@ -103,6 +105,7 @@ public class Greeting {
     /**
      * Gets the Unicode format string. This string will have an %s,
      * so that the name can be inserted into the greeting in the correct location.
+     * @return The formatted greeting string using the Unicode style.
      */
     public String getFormatStr() {
         return this.getFormatStr(false);
@@ -116,6 +119,9 @@ public class Greeting {
      *  String name = "Alice";
      *  String greet = String.format(g.getFormatStr(false), name);
      *  System.out.println(greet); // Hello, Alice!
+     * @param asciiOnly If {@code true}, the greeting uses the ASCII style;
+     *                  otherwise, it uses the Unicode style.
+     * @return The formatted greeting string.
      */
     public String getFormatStr(boolean asciiOnly) {
         if (asciiOnly) {
